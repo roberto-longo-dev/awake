@@ -1,0 +1,9 @@
+node_modules
+.env
+.env.local
+.env*.local
+.turbo
+.next
+dist
+CLAUDE.md
+.idea/
