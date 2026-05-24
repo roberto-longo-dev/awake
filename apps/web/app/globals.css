@@ -1,26 +1,31 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Colors */
+  --color-background: #F5F0E8;
+  --color-text: #1C1917;
+  --color-text-muted: #6B6560;
+  --color-primary: #3D5A3E;
+  --color-primary-hover: #2E4430;
+  --color-accent: #C4622D;
+  --color-accent-hover: #A34F22;
+  --color-neutral: #E8E0D0;
+  --color-neutral-dark: #D4CAB8;
+  --color-badge-green-bg: #D6E8D7;
+  --color-badge-green-text: #3D5A3E;
+  --color-badge-amber-bg: #F5E6D3;
+  --color-badge-amber-text: #C4622D;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Typography */
+  --font-family-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --letter-spacing-logo: 0.12em;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F5F0E8;
+  color: #1C1917;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
