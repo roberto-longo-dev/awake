@@ -17,6 +17,7 @@ type ButtonProps = {
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
 export function Button({
@@ -25,11 +26,13 @@ export function Button({
   className = "",
   onClick,
   type = "button",
+  disabled = false,
 }: ButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={`px-5 py-2.5 rounded-md font-medium cursor-pointer ${variantClasses[variant]} ${className}`}
     >
       {children}
