@@ -29,3 +29,20 @@ export const latestPostsQuery = `*[_type == "post"] | order(publishedAt desc) [0
   publishedAt,
   excerpt
 }`;
+
+export const allPostsQuery = `*[_type == "post"] | order(publishedAt desc) {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  excerpt
+}`;
+
+export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0] {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  excerpt,
+  body
+}`;
