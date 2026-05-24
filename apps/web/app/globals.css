@@ -29,3 +29,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+* {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+input, textarea, [contenteditable] {
+    user-select: text;
+    -webkit-user-select: text;
+}
