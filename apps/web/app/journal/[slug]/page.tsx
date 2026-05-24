@@ -39,6 +39,17 @@ function formatDate(iso: string): string {
 const backLinkClasses =
   "text-xs font-medium tracking-widest text-primary uppercase hover:border-b hover:border-primary transition-colors duration-200";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = await client.fetch<Post | null>(postBySlugQuery, { slug });
+  if (!post) return { title: "Post not found" };
+  return { title: post.title, description: post.excerpt };
+}
+
 export async function generateStaticParams() {
   const posts = await client.fetch<PostSlugResult[]>(
     `*[_type == "post"]{ slug }`

@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Our Coffees",
+  description:
+    "Single origin, small batch coffees from Ethiopia, Colombia, and Guatemala.",
+};
 import { client } from "@/lib/sanity/client";
 import { allProductsQuery } from "@/lib/sanity/queries";
 import { Badge } from "@/components/ui/Badge";

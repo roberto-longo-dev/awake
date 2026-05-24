@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Coming Soon",
+  description: "Online ordering is coming soon to Awake.",
+};
 
 export default function OrderPage() {
   return (

@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Awake — Specialty Coffee",
+  description:
+    "Single origin specialty coffee, traced to the source. Direct trade roastery.",
+};
 import { client } from "@/lib/sanity/client";
 import { featuredProductsQuery, latestPostsQuery } from "@/lib/sanity/queries";
 import { Button } from "@/components/ui/Button";
