@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Member Area",
+  description: "Private member area — coming soon.",
+};
 
 export default function LoginPage() {
   return (

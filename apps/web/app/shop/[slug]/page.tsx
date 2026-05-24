@@ -36,6 +36,19 @@ const backLinkClasses =
 const sectionLabelClasses =
   "text-xs tracking-widest uppercase text-text-muted mb-2";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const product = await client.fetch<Product | null>(productBySlugQuery, {
+    slug,
+  });
+  if (!product) return { title: "Product not found" };
+  return { title: product.name, description: product.excerpt };
+}
+
 export async function generateStaticParams() {
   const products = await client.fetch<ProductSlugResult[]>(
     `*[_type == "product"]{ slug }`

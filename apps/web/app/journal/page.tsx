@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "From the Journal",
+  description: "Thoughts on coffee, craft, and origin.",
+};
 import { client } from "@/lib/sanity/client";
 import { allPostsQuery } from "@/lib/sanity/queries";
 
