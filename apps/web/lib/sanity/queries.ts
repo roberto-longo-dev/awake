@@ -46,3 +46,36 @@ export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0] {
   excerpt,
   body
 }`;
+
+export const allProductsQuery = `*[_type == "product"] | order(_createdAt asc) {
+  _id,
+  name,
+  slug,
+  origin,
+  region,
+  process,
+  roastLevel,
+  price,
+  weight,
+  excerpt,
+  tastingNotes,
+  inStock
+}`;
+
+export const productBySlugQuery = `*[_type == "product" && slug.current == $slug][0] {
+  _id,
+  name,
+  slug,
+  origin,
+  region,
+  process,
+  roastLevel,
+  grindOptions,
+  price,
+  weight,
+  excerpt,
+  description,
+  tastingNotes,
+  inStock,
+  isSubscription
+}`;
