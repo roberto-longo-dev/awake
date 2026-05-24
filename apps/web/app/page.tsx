@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Awake — Specialty Coffee",
+  title: "Awake - Specialty Coffee",
   description:
     "Single origin specialty coffee, traced to the source. Direct trade roastery.",
 };
