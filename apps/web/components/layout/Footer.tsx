@@ -19,6 +19,12 @@ export function Footer() {
             >
               Cookie Policy
             </Link>
+            <a
+              href="#"
+              className="termly-display-preferences text-xs text-muted hover:text-text transition-colors duration-200"
+            >
+              Consent Preferences
+            </a>
           </nav>
         </div>
         <p className="text-center mt-4 text-xs text-muted">
