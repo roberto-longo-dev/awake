@@ -1,9 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { client } from "@/lib/sanity/client";
 import { productBySlugQuery } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/image";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+
+type CoverImage = {
+  asset: object;
+  alt?: string;
+};
 
 type Product = {
   _id: string;
@@ -20,6 +27,7 @@ type Product = {
   tastingNotes: string[];
   inStock: boolean;
   isSubscription: boolean;
+  coverImage?: CoverImage;
 };
 
 type ProductSlugResult = {
@@ -77,10 +85,20 @@ export default async function ProductPage({
       </Link>
 
       <div className="mt-8 md:grid md:grid-cols-2 md:gap-12">
-        {/* Left: image placeholder */}
-        <div className="bg-neutral rounded-lg aspect-square flex items-center justify-center text-text-muted text-sm mb-8 md:mb-0">
-          No image yet
-        </div>
+        {/* Left: image or placeholder */}
+        {product.coverImage?.asset ? (
+          <Image
+            src={urlFor(product.coverImage).width(800).height(800).url()}
+            alt={product.coverImage.alt || product.name}
+            width={800}
+            height={800}
+            className="w-full aspect-square object-cover rounded-lg mb-8 md:mb-0"
+          />
+        ) : (
+          <div className="bg-neutral rounded-lg aspect-square flex items-center justify-center text-text-muted text-sm mb-8 md:mb-0">
+            No image yet
+          </div>
+        )}
 
         {/* Right: product details */}
         <div>

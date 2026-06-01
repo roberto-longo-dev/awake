@@ -6,10 +6,17 @@ export const metadata: Metadata = {
   description:
     "Single origin specialty coffee, traced to the source. Direct trade roastery.",
 };
+import Image from "next/image";
 import { client } from "@/lib/sanity/client";
 import { featuredProductsQuery, latestPostsQuery } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/image";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+
+type CoverImage = {
+  asset: object;
+  alt?: string;
+};
 
 type Product = {
   _id: string;
@@ -23,6 +30,7 @@ type Product = {
   weight: number;
   excerpt: string;
   tastingNotes: string[];
+  coverImage?: CoverImage;
 };
 
 type Post = {
@@ -82,6 +90,15 @@ export default async function HomePage() {
               key={product._id}
               className="bg-white rounded-lg border border-neutral p-6"
             >
+              {product.coverImage?.asset && (
+                <Image
+                  src={urlFor(product.coverImage).width(400).height(400).url()}
+                  alt={product.coverImage.alt || product.name}
+                  width={400}
+                  height={400}
+                  className="w-full aspect-square object-cover rounded-md mb-4"
+                />
+              )}
               <div className="mb-4">
                 <Badge variant="amber">
                   {product.origin}, {product.region}
