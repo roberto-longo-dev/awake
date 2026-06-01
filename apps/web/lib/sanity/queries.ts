@@ -19,7 +19,11 @@ export const featuredProductsQuery = `*[_type == "product" && isFeatured == true
   price,
   weight,
   excerpt,
-  tastingNotes
+  tastingNotes,
+  coverImage {
+    asset,
+    alt
+  }
 }`;
 
 export const latestPostsQuery = `*[_type == "post"] | order(publishedAt desc) [0...3] {
@@ -59,7 +63,11 @@ export const allProductsQuery = `*[_type == "product"] | order(_createdAt asc) {
   weight,
   excerpt,
   tastingNotes,
-  inStock
+  inStock,
+  coverImage {
+    asset,
+    alt
+  }
 }`;
 
 export const productBySlugQuery = `*[_type == "product" && slug.current == $slug][0] {
@@ -77,5 +85,9 @@ export const productBySlugQuery = `*[_type == "product" && slug.current == $slug
   description,
   tastingNotes,
   inStock,
-  isSubscription
+  isSubscription,
+  coverImage {
+    asset,
+    alt
+  }
 }`;

@@ -6,9 +6,16 @@ export const metadata: Metadata = {
   description:
     "Single origin, small batch coffees from Ethiopia, Colombia, and Guatemala.",
 };
+import Image from "next/image";
 import { client } from "@/lib/sanity/client";
 import { allProductsQuery } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/image";
 import { Badge } from "@/components/ui/Badge";
+
+type CoverImage = {
+  asset: object;
+  alt?: string;
+};
 
 type Product = {
   _id: string;
@@ -23,6 +30,7 @@ type Product = {
   excerpt: string;
   tastingNotes: string[];
   inStock: boolean;
+  coverImage?: CoverImage;
 };
 
 export default async function ShopPage() {
@@ -41,6 +49,15 @@ export default async function ShopPage() {
             key={product._id}
             className="bg-white rounded-lg border border-neutral p-6 flex flex-col"
           >
+            {product.coverImage?.asset && (
+              <Image
+                src={urlFor(product.coverImage).width(400).height(400).url()}
+                alt={product.coverImage.alt || product.name}
+                width={400}
+                height={400}
+                className="w-full aspect-square object-cover rounded-md mb-4"
+              />
+            )}
             <div className="mb-4">
               <Badge variant="amber">
                 {product.origin}, {product.region}
