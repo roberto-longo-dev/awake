@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: { template: "%s — Awake", default: "Awake -Specialty Coffee" },
+  title: { template: "%s — Awake", default: "Awake - Specialty Coffee" },
   description:
     "Single origin specialty coffee, traced to the source. Direct trade roastery.",
   icons: { icon: "/favicon.svg" },
