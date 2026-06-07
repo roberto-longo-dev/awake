@@ -6,7 +6,7 @@ import { PRIVACY_HTML } from "@/lib/legal/privacy-policy"
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Privacy Policy for Awake — how we collect, use, and protect your data.",
+    "Privacy Policy for Awake - how we collect, use, and protect your data.",
 };
 
 export default function PrivacyPage() {
