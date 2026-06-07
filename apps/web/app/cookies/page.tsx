@@ -5,7 +5,7 @@ import { COOKIE_HTML } from "@/lib/legal/cookie-policy";
 export const metadata: Metadata = {
   title: "Cookie Policy",
   description:
-    "Cookie Policy for Awake — how we use cookies and tracking technologies.",
+    "Cookie Policy for Awake - how we use cookies and tracking technologies.",
 };
 
 export default function CookiesPage() {
