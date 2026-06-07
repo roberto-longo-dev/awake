@@ -9,7 +9,10 @@
       "env": [
         "NEXT_PUBLIC_SANITY_PROJECT_ID",
         "NEXT_PUBLIC_SANITY_DATASET",
-        "RESEND_API_KEY"
+        "RESEND_API_KEY",
+        "GOOGLE_CLIENT_ID",
+        "GOOGLE_CLIENT_SECRET",
+        "AUTH_SECRET"
       ]
     },
     "dev": {
