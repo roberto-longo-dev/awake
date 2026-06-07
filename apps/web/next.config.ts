@@ -1,6 +1,10 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ["@prisma/client", "prisma"],
+  env: {
+    DATABASE_URL: process.env.DATABASE_URL,
+  },
   images: {
     remotePatterns: [
       {
@@ -9,6 +13,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig
