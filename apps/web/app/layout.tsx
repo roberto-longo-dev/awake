@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import TermlyCMP from "@/components/TermlyCMP";
+import { auth } from "@/auth";
+import { CountdownTimer } from "@/components/auth/CountdownTimer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -712,11 +714,13 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.svg" },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
     <html
       lang="en"
@@ -732,6 +736,9 @@ export default function RootLayout({
         </Suspense>
         {children}
         <Footer />
+        {session?.user?.createdAt && (
+          <CountdownTimer createdAt={session.user.createdAt} />
+        )}
       </body>
     </html>
   );
