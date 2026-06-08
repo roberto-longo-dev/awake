@@ -3,10 +3,15 @@ import Link from "next/link";
 export function Footer() {
   return (
     <footer className="bg-neutral/50 border-t border-neutral py-8 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center">
-          <span className="font-bold tracking-widest text-sm">AWAKE</span>
-          <nav className="flex gap-6">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between md:items-center">
+          <Link
+            href="/"
+            className="font-bold tracking-logo text-text hover:underline transition-all duration-200"
+          >
+            AWAKE
+          </Link>
+          <nav className="flex flex-wrap justify-center gap-4 md:gap-6">
             <Link
               href="/privacy"
               className="text-xs text-muted hover:text-text transition-colors duration-200"

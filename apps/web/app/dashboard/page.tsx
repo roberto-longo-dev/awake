@@ -12,7 +12,7 @@ export default async function DashboardPage() {
   if (!session) redirect("/login")
 
   return (
-    <main className="max-w-2xl mx-auto px-6 py-16">
+    <main className="flex-1 w-full max-w-2xl mx-auto px-6 py-16">
       <h1 className="text-2xl font-bold text-text mb-8">Dashboard</h1>
 
       <div className="border border-neutral rounded-lg p-6">

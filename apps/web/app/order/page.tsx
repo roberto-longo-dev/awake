@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function OrderPage() {
   return (
-    <div className="max-w-2xl mx-auto px-6 py-24 text-center">
+    <div className="flex-1 w-full max-w-2xl mx-auto px-6 py-24 text-center">
       <p className="text-xs font-medium tracking-widest text-accent uppercase mb-4">
         COMING SOON
       </p>
